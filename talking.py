@@ -153,6 +153,8 @@ ans_3 = [
 ]
 
 
+speech = "0.8"
+
 print(
     "This program has 3 question sets.\n"
     "Please type (1-3) any one digit"
@@ -161,7 +163,7 @@ print(
 choice = int(input("Type :- "))
 
 print("Loading...")
-time.sleep(3)
+time.sleep(2)
 
 
 if choice < 1 or choice > 3:
@@ -175,7 +177,7 @@ else:
         global money
 
         print("Your question is ...")
-        time.sleep(2)
+        time.sleep(1)
 
         # ---------------- SET 1 ----------------
 
@@ -185,7 +187,7 @@ else:
 
                 say = sp.run(
                     [
-                        "termux-tts-speak",
+                        "termux-tts-speak","-r",speech,
                         f"{queshion_1[i]}"
                     ],
                     capture_output=True,
@@ -202,7 +204,8 @@ else:
 
                 say_op = sp.run(
                     [
-                        "termux-tts-speak",
+                        "termux-tts-speak"
+                        ,"-r",speech,
                         f"Option A is {j[0]}, "
                         f"option B is {j[1]}, "
                         f"option C is {j[2]}, "
@@ -223,13 +226,14 @@ else:
 
                 ans = input("Your Choice :- ").upper()
 
-                time.sleep(2)
+                time.sleep(1)
 
                 if ans == ans_1[i]:
 
                     win = sp.run(
                         [
-                            "termux-tts-speak",
+                            "termux-tts-speak"
+                            ,"-r",speech,
                             "Correct Answer, Your money is double"
                         ],
                         capture_output=True,
@@ -241,6 +245,7 @@ else:
                     print("Correct answer")
 
                     money *= 2
+                    print (f"Your money is {money}$ ")
 
                 else:
 
@@ -255,6 +260,7 @@ else:
                 say = sp.run(
                     [
                         "termux-tts-speak",
+                        "-r",speech,
                         f"{queshion_2[i]}"
                     ],
                     capture_output=True,
@@ -272,6 +278,7 @@ else:
                 say_op = sp.run(
                     [
                         "termux-tts-speak",
+                        "-r",speech,
                         f"Option A is {j[0]}, "
                         f"option B is {j[1]}, "
                         f"option C is {j[2]}, "
@@ -292,13 +299,14 @@ else:
 
                 ans = input("Your Choice :- ").upper()
 
-                time.sleep(2)
+                time.sleep(1)
 
                 if ans == ans_2[i]:
 
                     win = sp.run(
                         [
-                            "termux-tts-speak",
+                            "termux-tts-speak"
+                            ,"-r",speech,
                             "Correct Answer, Your money is double"
                         ],
                         capture_output=True,
@@ -310,6 +318,7 @@ else:
                     print("Correct answer")
 
                     money *= 2
+                    print (f"Your money is {money}$ ")
 
                 else:
 
@@ -323,7 +332,8 @@ else:
 
                 say = sp.run(
                     [
-                        "termux-tts-speak",
+                        "termux-tts-speak"
+                        ,"-r",speech,
                         f"{queshion_3[i]}"
                     ],
                     capture_output=True,
@@ -340,7 +350,8 @@ else:
 
                 say_op = sp.run(
                     [
-                        "termux-tts-speak",
+                        "termux-tts-speak"
+                        ,"-r",speech,
                         f"Option A is {j[0]}, "
                         f"option B is {j[1]}, "
                         f"option C is {j[2]}, "
@@ -361,13 +372,14 @@ else:
 
                 ans = input("Your Choice :- ").upper()
 
-                time.sleep(2)
+                time.sleep(1)
 
                 if ans == ans_3[i]:
 
                     win = sp.run(
                         [
-                            "termux-tts-speak",
+                            "termux-tts-speak"
+                            ,"-r",speech,
                             "Correct Answer, Your money is double"
                         ],
                         capture_output=True,
@@ -377,8 +389,10 @@ else:
 
                     print(win.stdout.strip())
                     print("Correct answer")
+                    
 
                     money *= 2
+                    print(f"Your money is {money}$")
 
                 else:
 
